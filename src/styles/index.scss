@@ -1,0 +1,370 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+@import './btn.scss';
+
+.popper-clazz {
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  font-family: Verdana, Geneva, sans-serif;
+  //font-family: Roboto, 'Microsoft Yahei';
+  font-size: $primary-font-size;
+  color: $primary-font-color;
+}
+
+.font-size-primary {
+  font-size: $primary-font-size;
+}
+
+
+.primary-color {
+  color: $primary-color
+}
+
+.font-color-primary {
+  color: $primary-font-color;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+.app-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.content-container {
+  padding: 10px 32px;
+  position: relative;
+}
+
+.panel-title {
+  color: $primary-color;
+  font-weight: normal;
+  font-size: 12px;
+  margin-bottom: 8px;
+  padding: 8px 0 8px 15px;
+  background: #F0F0F0;
+}
+
+.margin-left-10 {
+  margin-left: 10px;
+}
+
+.margin-left-5 {
+  margin-left: 5px;
+}
+
+.width-190 {
+  width: 190px;
+}
+
+.width-200 {
+  width: 200px;
+}
+
+.width-400 {
+  width: 400px;
+}
+
+.width-100 {
+  width: 100px;
+}
+
+.margin-top-40 {
+  margin-top: 40px;
+}
+
+.margin-left-20 {
+  margin-left: 20px;
+}
+
+.margin-20-0 {
+  margin: 20px 0
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.font-size-18 {
+  font-size: 18px;
+}
+
+.font-size-16 {
+  font-size: 16px;
+}
+
+.margin-right-10 {
+  margin-right: 10px;
+}
+
+.margin-right-50 {
+  margin-right: 50px;
+}
+
+.margin-right-20 {
+  margin-right: 20px;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.margin-bottom-15 {
+  margin-bottom: 15px;
+}
+
+.margin-top-50 {
+  margin-top: 50px;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}
+
+.margin-top-8 {
+  margin-top: 8px;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.margin-top-5 {
+  margin-top: 5px;
+}
+
+.margin-left-5 {
+  margin-left: 5px;
+}
+
+.margin-left-8 {
+  margin-left: 8px;
+}
+
+.width-100p {
+  width: 100%;
+}
+
+.margin-top-30 {
+  margin-top: 30px;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.disabled-color {
+  color: #b2b2b2;
+}
+
+.opt-wrapper {
+  margin: 30px 0 10px 0;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  align-items: center;
+
+  .opt-item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+
+    .icon-holder {
+      font-size: 18px
+    }
+
+    .icon-text {
+      font-size: 12px;
+      margin-left: 5px
+    }
+  }
+}
+
+.display-flex {
+  display: flex;
+}
+
+.max-width-232 {
+  max-width: 232px;
+}
+
+.width-232 {
+  width: 232px;
+}
+
+
+.padding-bottom-15 {
+  padding-bottom: 15px;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+
+// page root div
+.root {
+  display: flex;
+  flex-direction: column;
+}
+// main title
+.title {
+  color: rgb(154, 37, 143);
+  font-size: 16px;
+  margin: 15px 0;
+}
+
+// card panel
+.content-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .field-row {
+    display: flex;
+    align-items: center;
+    height: 43px;
+    padding: 10px 20px;
+
+    .field-key {
+      flex: 3;
+    }
+
+    .field-value {
+      flex: 7;
+    }
+
+    &:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+    &:nth-child(even) {
+      background-color: #ffffff;
+    }
+  }
+
+  .opt-btn-wrapper {
+    margin-top: 20px;
+  }
+}
+
+.card-panel-editable-content-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .field-row {
+    display: flex;
+    align-items: flex-start;
+    min-height: 43px;
+    height: auto;
+    padding: 10px 20px;
+
+    .field-key {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 30px;
+      flex: 2;
+      align-items: center;
+      .field-key-text {
+        height: 32px;
+        line-height: 32px;
+      }
+    }
+
+    .field-value {
+      flex: 8;
+      .field-value-column {
+        display: flex;
+        flex-direction: column;
+        .field-value-column-input {
+          width: 350px;
+          height: 32px;
+          display: flex;
+          align-items: center;
+        }
+        .field-value-column-input-tips {
+          margin-top: 6px;
+          color: rgb(132, 119, 116);
+          font-size: 11px;
+
+          &:before {
+            content: '?';
+            padding: 1px 3px;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 10px;
+            background: rgb(183, 173, 170);
+            color:#ffffff;
+          }
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+    &:nth-child(even) {
+      background-color: #ffffff;
+    }
+  }
+}
+
+.highlight {
+  background: #8ebdf5 !important;
+}

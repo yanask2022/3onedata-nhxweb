@@ -1,0 +1,30 @@
+{
+  "id": "3820515",
+  "name": "网络路由",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1252",
+      "name": "帮助",
+      "font_class": "bangzhu",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "18448433",
+      "name": "插电",
+      "font_class": "chadian",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
+      "icon_id": "19218090",
+      "name": "虫害-蜘蛛",
+      "font_class": "chonghai-zhizhu",
+      "unicode": "e968",
+      "unicode_decimal": 59752
+    }
+  ]
+}

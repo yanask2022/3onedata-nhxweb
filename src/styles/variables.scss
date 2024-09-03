@@ -1,0 +1,99 @@
+$topHeaderHeight: 60px;
+$sideBarWidth: 230px;
+
+$primary-color: #005564;
+$primary-font-size: 12px;
+$primary-font-color: #000000;
+
+
+////左侧菜单容器背景
+//$menu-container-bg:#f2f2f2;
+//
+////菜单项配置
+////菜单项背景颜色
+//$menu-bg-color: #f2f2f2;
+////菜单文字颜色
+//$menu-text-color: $primary-color;
+////菜单文字大小
+//$menu-text-size: 13px;
+////菜单箭头颜色
+//$menu-arrow-color: $primary-color;
+//
+////菜单项悬停背景色
+//$menu-hover-bg-color: $primary-color;
+////菜单项悬停时文字颜色
+//$menu-hover-text-color: #ffffff;
+////菜单项悬停时箭头颜色
+//$menu-hover-arrow-color: #ffffff;
+//
+////菜单选中时背景色
+//$menu-selected-bg-color: $primary-color;
+////菜单选中时文字颜色
+//$menu-selected-text-color: #ffffff;
+////菜单项选中时箭头颜色
+//$menu-selected-arrow-color: #ffffff;
+//
+//
+//$sub-menu-bg-color:  #dcdcdc;
+//$sub-menu-text-color: #000000;
+//
+//$sub-menu-selected-text-color: $primary-color;
+//$sub-menu-selected-bg-color: #ffffff;
+
+
+  // base color
+$blue:#324157;
+$light-blue:#3A71A8;
+$red:#C03639;
+$pink: #E65D6E;
+$green: #30B08F;
+$tiffany: #4AB7BD;
+$yellow:#FEC171;
+$panGreen: #30B08F;
+
+
+
+
+// sidebar
+////未选中文字颜色
+//$menuText:$primary-color;
+////选中文字颜色
+//$menuActiveText:#FFFFFFF;
+//$subMenuActiveText:#f4f4f5; // https://github.com/ElemeFE/element/issues/12951
+//
+////背景色
+//
+//$menuHover:#263445;
+//
+//$subMenuBg: #10cff1;
+//$subMenuHover:#001528;
+
+$menuText: #9A258F;
+$menuActiveText:#9A258F;;
+$subMenuActiveText:#9A258F; // https://github.com/ElemeFE/element/issues/12951
+
+$menuBg:#304156;
+$menuHover: #8581D8;
+
+$subMenuBg:#1f2d3d;
+$subMenuHover:#001528;
+
+$sideBarWidth: 230px;
+
+
+
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+  primaryColor: $primary-color;
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  subMenuActiveText: $subMenuActiveText;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  sideBarWidth: $sideBarWidth;
+  topHeaderHeight: $topHeaderHeight;
+}

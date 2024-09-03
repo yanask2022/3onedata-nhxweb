@@ -1,0 +1,47 @@
+# Node.js with Vue
+# Build a Node.js project that uses Vue.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+variables:
+- name: mysshkey
+  value: ssh-rsa $(ID_RSA_PUB)
+
+pool:
+  vmImage: ubuntu-latest
+
+jobs:
+- job: NHX_VUE
+  timeoutInMinutes: 360
+
+  steps:
+  - task: InstallSSHKey@0
+    displayName: 'Install an SSH key'
+    inputs:
+      knownHostsEntry: 'ssh.dev.azure.com ssh-rsa $(KNOWN_HOSTS)'
+      sshPublicKey: '$(mysshkey)'
+      sshKeySecureFile: 'id_rsa'
+      addEntryToConfig: true
+      configHostAlias: 'dev.azure.com'
+      configHostname: 'ssh.dev.azure.com'
+
+  - task: NodeTool@0
+    inputs:
+      versionSource: 'spec'
+      versionSpec: '16.x'
+      displayName: Install Node.js
+
+  - script: npm install
+    displayName: npm install
+
+  - script: npm run build:prod
+    displayName: npm build
+
+  - script: ls -lR files
+    displayName: ls bin
+
+  - script: source ./build/push.sh
+    displayName: push nhxweb
