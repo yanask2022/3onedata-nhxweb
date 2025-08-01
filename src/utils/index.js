@@ -135,13 +135,17 @@ export function byteLength(str) {
  * @returns {Array}
  */
 export function cleanArray(actual) {
-  const newArray = []
-  for (let i = 0; i < actual.length; i++) {
-    if (actual[i]) {
-      newArray.push(actual[i])
-    }
+  // More efficient implementation using filter method
+  // Also handles edge cases like empty arrays and null/undefined values
+  if (!Array.isArray(actual)) {
+    return []
   }
-  return newArray
+  
+  return actual.filter(item => {
+    // Filter out falsy values: null, undefined, 0, false, '', NaN
+    // but keep 0 as a valid number if it's specifically needed
+    return item !== null && item !== undefined && item !== ''
+  })
 }
 
 /**

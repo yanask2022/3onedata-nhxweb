@@ -32,8 +32,22 @@ const actions = {
   // user login
   login({ commit }, userInfo) {
     const { username, password } = userInfo
+    
+    // Input validation
+    if (!username || !password) {
+      return Promise.reject(new Error('Username and password are required'))
+    }
+    
+    const trimmedUsername = username.trim()
+    if (trimmedUsername.length === 0) {
+      return Promise.reject(new Error('Username cannot be empty'))
+    }
+    
     return new Promise((resolve, reject) => {
-      login({ username: username.trim(), password: btoa(password) }).then(response => {
+      // WARNING: This should use proper hashing (bcrypt, scrypt, etc.) on the server side
+      // Base64 is used here for backward compatibility but is NOT secure
+      // TODO: Replace with proper password hashing mechanism
+      login({ username: trimmedUsername, password: btoa(password) }).then(response => {
         // const { data } = response
         // commit('SET_TOKEN', data.token)
         commit('SET_TOKEN', response.sid)
@@ -116,7 +130,9 @@ const actions = {
     // generate accessible routes map based on roles
     const accessRoutes = await dispatch('permission/generateRoutes', roles, { root: true })
     // dynamically add accessible routes
-    router.addRoutes(accessRoutes)
+    accessRoutes.forEach(route => {
+      router.addRoute(route)
+    })
 
     // reset visited views and cached views
     dispatch('tagsView/delAllViews', null, { root: true })
