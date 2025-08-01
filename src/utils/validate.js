@@ -60,8 +60,18 @@ export function validAlphabets(str) {
  * @returns {Boolean}
  */
 export function validEmail(email) {
-  const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  return reg.test(email)
+  // Input sanitization to prevent XSS
+  if (!email || typeof email !== 'string') {
+    return false
+  }
+  
+  // Remove any potential script tags or dangerous characters
+  const sanitizedEmail = email.replace(/<[^>]*>/g, '').trim()
+  
+  // More secure email validation regex that doesn't allow dangerous characters
+  const reg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+  
+  return reg.test(sanitizedEmail) && sanitizedEmail.length <= 254 // RFC5321 limit
 }
 
 /**

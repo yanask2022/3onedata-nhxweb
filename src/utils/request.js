@@ -30,13 +30,22 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   config => {
-    config.data['version'] = '1.0'
-    if (store.getters.token) {
-      config.data['sid'] = getToken()
-    } else {
-      config.data['sid'] = '000000000000000000000000000000'
+    // Ensure config.data exists and is an object
+    if (!config.data || typeof config.data !== 'object') {
+      config.data = {}
     }
-
+    
+    // Safely set properties without direct assignment
+    const requestData = { ...config.data }
+    requestData.version = '1.0'
+    
+    if (store.getters.token) {
+      requestData.sid = getToken()
+    } else {
+      requestData.sid = '000000000000000000000000000000'
+    }
+    
+    config.data = requestData
     return config
   },
   error => {
